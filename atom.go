@@ -105,7 +105,17 @@ func (this *Feed) readAtom(doc *xmlx.Document) (err error) {
 				i.Author.Email = tn.S(ns, "email")
 			}
 
+			i.Extensions = make(map[string]map[string][]Extension)
+			for _, lv := range item.Children {
+				// logrus.Info("lv: ", lv)
+				getExtensions(&i.Extensions, lv)
+			}
+
 			ch.Items = append(ch.Items, i)
+		}
+		ch.Extensions = make(map[string]map[string][]Extension)
+		for _, v := range node.Children {
+			getExtensions(&ch.Extensions, v)
 		}
 	}
 	this.Channels = foundChannels
