@@ -1,7 +1,7 @@
 package feeder
 
 import (
-	xmlx "github.com/Smarp/go-pkg-xmlx"
+	xmlx "github.com/smarp/go-pkg-xmlx"
 )
 
 type MissingRssNodeError struct{}
