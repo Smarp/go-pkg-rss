@@ -80,7 +80,16 @@ func Test_ParseLayout4_2(t *testing.T) {
 
 func Test_ParseLayout5(t *testing.T) {
 	date, err := parseTime("22 Jul 2013 14:55:01 EST")
-	expected := time.Date(2013, time.July, 22, 14, 55, 1, 0, time.FixedZone("EST", -18000))
+	expected := time.Date(2013, time.July, 22, 14, 55, 1, 0, time.FixedZone("EST", 0))
+	assertEqualTime(t, expected, date)
+	if err != nil {
+		t.Errorf("err should be nil")
+	}
+}
+
+func Test_ParseLayout_BST(t *testing.T) {
+	date, err := parseTime("Mon, 03 Jun 2019 13:17:01 BST")
+	expected := time.Date(2019, time.June, 3, 13, 17, 1, 0, time.FixedZone("BST", 0))
 	assertEqualTime(t, expected, date)
 	if err != nil {
 		t.Errorf("err should be nil")
