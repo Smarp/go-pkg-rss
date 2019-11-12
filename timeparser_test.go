@@ -32,6 +32,14 @@ func Test_ParseLayout1(t *testing.T) {
 		t.Errorf("err should be nil")
 	}
 }
+func Test_parseGMT_without_sec(t *testing.T) {
+	date, err := parseTime("Fri, 08 Nov 2019 15:02 GMT")
+	expected := time.Date(2019, time.November, 8, 15, 02, 00, 0, time.UTC)
+	assertEqualTime(t, expected, date)
+	if err != nil {
+		t.Errorf("err should be nil")
+	}
+}
 
 func Test_ParseLayout2(t *testing.T) {
 	date, err := parseTime("2014-02-05T23:33:34Z")
