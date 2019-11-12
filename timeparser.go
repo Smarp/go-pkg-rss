@@ -8,6 +8,7 @@ import (
 func parseTime(formatted string) (time.Time, error) {
 	var layouts = [...]string{
 		"Mon, _2 Jan 2006 15:04:05 MST",
+		"Mon, _2 Jan 2006 15:04 MST",
 		"Mon, _2 Jan 2006 15:04:05 -0700",
 		time.ANSIC,
 		time.UnixDate,
