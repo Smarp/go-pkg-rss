@@ -24,6 +24,7 @@ func parseTime(formatted string) (time.Time, error) {
 		"02 Jan 2006 15:04:05 MST",
 		"Mon, 02 Jan 2006 15:04:05 Z",
 		"Tue, 04 Jun 2019 12:17:00 BST",
+		"2006-01-02T15:04:05",
 	}
 	var t time.Time
 	var err error

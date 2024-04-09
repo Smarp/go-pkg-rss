@@ -95,6 +95,15 @@ func Test_ParseLayout5(t *testing.T) {
 	}
 }
 
+func Test_ParseLayout6(t *testing.T) {
+	date, err := parseTime("2024-04-08T10:12:14")
+	expected := time.Date(2024, time.April, 8, 10, 12, 14, 0, time.UTC)
+	assertEqualTime(t, expected, date)
+	if err != nil {
+		t.Errorf("err should be nil")
+	}
+}
+
 func Test_ParseLayout_BST(t *testing.T) {
 	date, err := parseTime("Mon, 03 Jun 2019 13:17:01 BST")
 	expected := time.Date(2019, time.June, 3, 13, 17, 1, 0, time.FixedZone("BST", 0))
